@@ -24,7 +24,6 @@ echo "Using DATABASE_URL: $DATABASE_URL"
 python3 -c "
 import sys, os
 sys.path.insert(0, '.')
-os.environ.setdefault('DATABASE_URL', '${DATABASE_URL}')
 
 from app.db.base import Base, engine, SessionLocal
 from app.models.models import User

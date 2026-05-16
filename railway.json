@@ -44,8 +44,8 @@
       "subdirectory": "web",
       "variables": {
         "VITE_API_URL": {
-          "description": "Backend API base URL — e.g. https://<backend-domain>/api/v1",
-          "required": true
+          "description": "Backend API URL — auto-filled from the backend service",
+          "value": "https://${{backend.RAILWAY_PUBLIC_DOMAIN}}/api/v1"
         }
       }
     }

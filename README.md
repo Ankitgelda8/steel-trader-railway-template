@@ -13,7 +13,7 @@
 - **Auto order lifecycle**: `OPEN → PARTIAL → COMPLETE` (no manual status updates needed)
 - **Role-based access control**: `ADMIN`, `OPERATOR`, `VIEWER`
 - **JWT authentication** with configurable token lifetime
-- **SQLite** (zero-config for demo) or **PostgreSQL** (one env-var swap for production)
+- **PostgreSQL** auto-provisioned via Railway addon (SQLite fallback for local dev)
 - Auto-generated **Swagger / OpenAPI docs** at `/docs`
 - React 18 + Tailwind web dashboard — works on desktop and tablet
 
@@ -47,7 +47,7 @@ This template deploys **2 services** from a single repo:
 | `SECRET_KEY` | **Yes** | — | JWT signing secret. Generate with `python -c "import secrets; print(secrets.token_hex(32))"` |
 | `ADMIN_EMAIL` | No | `admin@steel.com` | Email for the auto-seeded admin account |
 | `ADMIN_PASSWORD` | **Yes** | — | Password for the admin account — set something strong |
-| `DATABASE_URL` | No | SQLite (file) | Set to Railway PostgreSQL addon URL for production use |
+| `DATABASE_URL` | Auto | `${{Postgres.DATABASE_URL}}` | Auto-provisioned Railway PostgreSQL — no manual setup needed |
 | `ACCESS_TOKEN_EXPIRE_MINUTES` | No | `1440` (24 h) | JWT token lifetime in minutes |
 
 ### Web service
@@ -128,7 +128,7 @@ This template is intentionally generic. Common customisations:
 |---|---|
 | Backend | Python 3.11, FastAPI, SQLAlchemy 2, Pydantic v2, Alembic, `passlib[bcrypt]`, `python-jose` |
 | Frontend | React 18, TypeScript, Vite, Tailwind CSS, TanStack Query, React Hook Form, Axios |
-| Database | SQLite (default) / PostgreSQL (production) |
+| Database | PostgreSQL (Railway addon, auto-provisioned) |
 | Deploy | Railway (Nixpacks auto-builder — no Dockerfile needed) |
 
 ---
@@ -212,7 +212,7 @@ All endpoints (except login/register) require `Authorization: Bearer <token>`.
 ## Production Checklist
 
 - [ ] Set a strong `SECRET_KEY`
-- [ ] Switch `DATABASE_URL` to PostgreSQL
+- [ ] Verify PostgreSQL addon is linked (auto-done by template)
 - [ ] Run `alembic upgrade head` for migrations
 - [ ] Enable HTTPS (nginx reverse proxy recommended)
 - [ ] Change `BASE_URL` / `baseURL` in mobile apps to production URL
