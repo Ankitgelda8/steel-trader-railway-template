@@ -2,7 +2,7 @@
 
 > A production-ready **inventory management system** for steel traders, building-material businesses, and any commodity distributor. Track purchase orders, manage stock lots, process sales with partial dispatch, and control team access — all from a clean web dashboard.
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/steel-trader)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/Ankitgelda8/steel-trader-railway-template)
 
 ---
 

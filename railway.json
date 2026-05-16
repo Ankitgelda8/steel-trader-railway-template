@@ -4,7 +4,7 @@
     {
       "name": "backend",
       "source": {
-        "repo": "https://github.com/YOUR_GITHUB_USERNAME/SteelTrader",
+        "repo": "https://github.com/Ankitgelda8/steel-trader-railway-template",
         "branch": "main"
       },
       "subdirectory": "backend",
@@ -34,7 +34,7 @@
     {
       "name": "web",
       "source": {
-        "repo": "https://github.com/YOUR_GITHUB_USERNAME/SteelTrader",
+        "repo": "https://github.com/Ankitgelda8/steel-trader-railway-template",
         "branch": "main"
       },
       "subdirectory": "web",
