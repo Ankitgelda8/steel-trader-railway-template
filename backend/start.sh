@@ -13,6 +13,10 @@ if [ -z "$DATABASE_URL" ]; then
     export DATABASE_URL="sqlite:///${DB_PATH}"
 fi
 
+# SQLAlchemy 2.x requires postgresql+psycopg2:// but Railway injects postgresql:// or postgres://
+DATABASE_URL=$(echo "$DATABASE_URL" | sed 's|^postgres://|postgresql+psycopg2://|; s|^postgresql://|postgresql+psycopg2://|')
+export DATABASE_URL
+
 echo "Using DATABASE_URL: $DATABASE_URL"
 
 # Seed admin user (idempotent — skips if already exists)

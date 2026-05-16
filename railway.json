@@ -2,6 +2,10 @@
   "$schema": "https://railway.app/railway.schema.json",
   "services": [
     {
+      "name": "Postgres",
+      "plugin": "postgresql"
+    },
+    {
       "name": "backend",
       "source": {
         "repo": "https://github.com/Ankitgelda8/steel-trader-railway-template",
@@ -9,6 +13,10 @@
       },
       "subdirectory": "backend",
       "variables": {
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection URL — auto-filled from the Postgres addon above",
+          "value": "${{Postgres.DATABASE_URL}}"
+        },
         "SECRET_KEY": {
           "description": "JWT signing secret — generate with: python -c \"import secrets; print(secrets.token_hex(32))\"",
           "required": true
@@ -20,10 +28,6 @@
         "ADMIN_PASSWORD": {
           "description": "Password for the admin account — must be changed from default",
           "required": true
-        },
-        "DATABASE_URL": {
-          "description": "PostgreSQL URL (optional — defaults to SQLite). Format: postgresql://user:pass@host:5432/dbname",
-          "required": false
         },
         "ACCESS_TOKEN_EXPIRE_MINUTES": {
           "description": "JWT token lifetime in minutes",
@@ -40,7 +44,7 @@
       "subdirectory": "web",
       "variables": {
         "VITE_API_URL": {
-          "description": "Backend API base URL. Set to: https://<backend-service-domain>/api/v1",
+          "description": "Backend API base URL — e.g. https://<backend-domain>/api/v1",
           "required": true
         }
       }

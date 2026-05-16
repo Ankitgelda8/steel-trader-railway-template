@@ -16,4 +16,6 @@ restartPolicyMaxRetries = 3
 [variables]
 ADMIN_EMAIL = "admin@steel.com"
 ACCESS_TOKEN_EXPIRE_MINUTES = "1440"
+# DATABASE_URL is automatically set by the Postgres plugin via railway.json:
+#   DATABASE_URL = ${{Postgres.DATABASE_URL}}
 # Set SECRET_KEY and ADMIN_PASSWORD in the Railway dashboard — never commit real values here

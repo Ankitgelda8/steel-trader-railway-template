@@ -3,7 +3,7 @@
 # and disables the default Nixpacks "install" phase so pip uses requirements.txt directly.
 
 [phases.setup]
-nixPkgs = ["python311", "gcc"]
+nixPkgs = ["python311", "gcc", "libpq"]
 
 [start]
 cmd = "sh start.sh"
