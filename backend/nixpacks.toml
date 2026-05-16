@@ -1,0 +1,9 @@
+# Nixpacks build config for the Steel Trader backend (FastAPI / Python 3.11)
+# Railway auto-detects Python via requirements.txt — this file pins the version
+# and disables the default Nixpacks "install" phase so pip uses requirements.txt directly.
+
+[phases.setup]
+nixPkgs = ["python311", "gcc"]
+
+[start]
+cmd = "sh start.sh"

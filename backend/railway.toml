@@ -1,0 +1,19 @@
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+startCommand = "sh start.sh"
+healthcheckPath = "/health"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+# --------------------------------------------------------------------------
+# Template environment variables — fill these in the Railway dashboard.
+# Use Railway reference variables to link to a PostgreSQL addon:
+#   DATABASE_URL = ${{Postgres.DATABASE_URL}}
+# --------------------------------------------------------------------------
+[variables]
+ADMIN_EMAIL = "admin@steel.com"
+ACCESS_TOKEN_EXPIRE_MINUTES = "1440"
+# Set SECRET_KEY and ADMIN_PASSWORD in the Railway dashboard — never commit real values here

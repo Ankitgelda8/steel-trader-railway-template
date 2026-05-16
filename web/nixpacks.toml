@@ -1,0 +1,10 @@
+# VITE_API_URL is injected as a Railway environment variable.
+# In the Railway dashboard (or template variables), set:
+#   VITE_API_URL = https://<your-backend-service-domain>/api/v1
+# With Railway reference variables this becomes:
+#   VITE_API_URL = ${{backend.RAILWAY_PUBLIC_DOMAIN}}
+#
+# The value below is the fallback for local Vite dev server builds.
+# Override it in Railway before first deploy.
+[variables]
+VITE_API_URL = "http://localhost:8000/api/v1"

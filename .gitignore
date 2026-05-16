@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+
+# Database (never commit real data)
+*.db
+*.db-shm
+*.db-wal
+
+# Node / frontend
+node_modules/
+dist/
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Alembic generated files (keep migrations, ignore pyc)
+*.pyc
